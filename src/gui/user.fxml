@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UserController">
+   <children>
+      <TextField fx:id="Nom" layoutX="509.0" layoutY="129.0" prefHeight="32.0" prefWidth="278.0" promptText="Nom" />
+      <TextField fx:id="Prenom" layoutX="509.0" layoutY="171.0" prefHeight="32.0" prefWidth="278.0" promptText="Prenom" />
+      <TextField fx:id="Username" layoutX="805.0" layoutY="218.0" prefHeight="32.0" prefWidth="278.0" promptText="Username" />
+      <TextField fx:id="Ville" layoutX="508.0" layoutY="218.0" prefHeight="32.0" prefWidth="278.0" promptText="Ville" />
+      <Button fx:id="btnSave" layoutX="666.0" layoutY="468.0" mnemonicParsing="false" onAction="#AjouterUserAction" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Save" />
+      <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="492.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Capture.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="589.0" fitWidth="906.0" layoutX="-420.0" layoutY="-4.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-3.8896484375" AnchorPane.leftAnchor="-420.0" AnchorPane.rightAnchor="615.0" AnchorPane.topAnchor="-4.0">
+         <image>
+            <Image url="@../images/velo.PNG" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="526.0" layoutY="32.0" prefHeight="23.0" prefWidth="180.0" text="Register Form" textFill="#9a8e8e">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Label>
+    
+      <PasswordField fx:id="Password" layoutX="808.0" layoutY="349.0" prefHeight="32.0" prefWidth="272.0" promptText="Password" />
+      <TextField fx:id="Cin" layoutX="508.0" layoutY="85.0" prefHeight="32.0" prefWidth="278.0" promptText="Cin" />
+      <TextField fx:id="Code_postal" layoutX="805.0" layoutY="85.0" prefHeight="32.0" prefWidth="278.0" promptText="Code_postal" />
+      <TextField fx:id="Pays" layoutX="805.0" layoutY="129.0" prefHeight="32.0" prefWidth="278.0" promptText="Pays" />
+      <TextField fx:id="Num_tel" layoutX="805.0" layoutY="266.0" prefHeight="32.0" prefWidth="278.0" promptText="Num_tel" />
+      <TextField fx:id="Poste" layoutX="805.0" layoutY="306.0" prefHeight="32.0" prefWidth="278.0" promptText="Poste" />
+      <TextField fx:id="Email" layoutX="805.0" layoutY="171.0" prefHeight="32.0" prefWidth="278.0" promptText="Email" />
+      <TextField fx:id="Adresse" layoutX="513.0" layoutY="420.0" prefHeight="25.0" prefWidth="272.0" promptText="Adresse" />
+      <Button layoutX="513.0" layoutY="369.0" mnemonicParsing="false" onAction="#choiceFileAction" prefHeight="44.0" prefWidth="272.0" text="Photo">
+         <graphic>
+            <ImageView fx:id="img" fitHeight="32.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true" />
+         </graphic>
+      </Button>
+      <ChoiceBox fx:id="Role" layoutX="808.0" layoutY="391.0" prefHeight="32.0" prefWidth="211.0" />
+      <ChoiceBox fx:id="Civilite" layoutX="513.0" layoutY="257.0" prefHeight="25.0" prefWidth="260.0" />
+      <ChoiceBox fx:id="Sexe" layoutX="513.0" layoutY="294.0" prefHeight="25.0" prefWidth="260.0" />
+      <DatePicker fx:id="Date_naissance" layoutX="527.0" layoutY="333.0" prefHeight="32.0" prefWidth="233.0" />
+   </children>
+</AnchorPane>
