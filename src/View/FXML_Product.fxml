@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="panelle" prefHeight="694.0" prefWidth="1043.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.FXML_ProductController">
+   <children>
+      <ScrollPane fx:id="scroll" layoutX="234.0" layoutY="127.0" prefHeight="526.0" prefWidth="795.0" />
+      <Text fx:id="elementpanier" layoutX="982.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8" wrappingWidth="29.0" />
+      <ImageView fx:id="panier" fitHeight="67.0" fitWidth="66.0" layoutX="963.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <TextField fx:id="search" layoutX="447.0" layoutY="43.0" onKeyReleased="#recherc" promptText="Rechercher ... " />
+      <CheckBox fx:id="available" layoutX="34.0" layoutY="611.0" mnemonicParsing="false" onAction="#availably" text="Availability" />
+      <Text layoutX="26.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filtrer par :" textAlignment="CENTER" wrappingWidth="92.99999862909317">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+      <CheckBox fx:id="mostp" layoutX="35.0" layoutY="559.0" mnemonicParsing="false" onAction="#mostps" text="Most price" />
+      <CheckBox fx:id="pompe" layoutX="17.0" layoutY="188.0" mnemonicParsing="false" onAction="#pomp" text="Pompe" />
+      <CheckBox fx:id="lowp" layoutX="35.0" layoutY="510.0" mnemonicParsing="false" onAction="#lowps" text="Lowest price" />
+      <Text layoutX="11.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" wrappingWidth="48.568359375" />
+      <CheckBox fx:id="clepedale" layoutX="111.0" layoutY="188.0" mnemonicParsing="false" onAction="#cle" text="Clé à pédale" />
+      <CheckBox fx:id="otherstype" layoutX="56.0" layoutY="226.0" mnemonicParsing="false" onAction="#othertp" text="Others" />
+      <CheckBox fx:id="f11" layoutX="20.0" layoutY="303.0" mnemonicParsing="false" onAction="#fonze" text="FT11" />
+      <Text layoutX="14.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Model" wrappingWidth="48.568359375" />
+      <CheckBox fx:id="f10" layoutX="114.0" layoutY="303.0" mnemonicParsing="false" onAction="#fdix" text="F10" />
+      <CheckBox fx:id="othersmodel" layoutX="56.0" layoutY="347.0" mnemonicParsing="false" onAction="#othr" text="Others" />
+      <Text layoutX="26.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Trier par :" textAlignment="CENTER" wrappingWidth="92.99999862909317">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
