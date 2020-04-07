@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="534.0" prefWidth="683.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdminController">
+   <children>
+      <AnchorPane layoutX="-6.0" prefHeight="85.0" prefWidth="689.0" style="-fx-background-color: #fff;">
+         <children>
+            <ImageView fitHeight="134.0" fitWidth="203.0" layoutX="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/received_2504281546505504.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="-2.0" layoutY="85.0" prefHeight="449.0" prefWidth="203.0" style="-fx-background-color: #2c304d;">
+         <children>
+            <Button layoutX="-1.0" layoutY="25.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="205.0" style="-fx-background-color: #2c304d;" text="Home" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="42.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-page-d’accueil-50.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="-2.0" layoutY="85.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #2c304d;" text="News" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/news_1.PNG" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="-1.0" layoutY="150.0" mnemonicParsing="false" onAction="#BikeLocationAction" prefHeight="50.0" prefWidth="204.0" style="-fx-background-color: #2c304d;" text="List of location" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="42.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-piste-cyclable-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutY="248.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="203.0" style="-fx-background-color: #2c304d;" text="List Of Bike" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="42.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-piste-cyclable-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="-2.0" layoutY="354.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #2c304d;" text="Reclamation" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="42.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-ajouter-un-marque-page-100.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="-10.0" layoutY="304.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="213.0" style="-fx-background-color: #2c304d;" text="Users" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="42.0" fitWidth="98.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/icons8-groupe-de-business-80.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="-1.0" layoutY="200.0" mnemonicParsing="false" onAction="#CategoriesVeloAction" prefHeight="45.0" prefWidth="205.0" style="-fx-background-color: #2c304d;" text="categories" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="34.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/news_1.PNG" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
