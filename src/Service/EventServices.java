@@ -57,7 +57,7 @@ public class EventServices
     public void ModifierEvent(Event e) throws SQLException
     {
        
-           String sql = "UPDATE event SET categories_id=?,Nom=?,Date_event=?,Description=?,Lieu_event=?,Prix=?,Nbr_participant=?,Photo=?,etet=? WHERE id=?";
+           String sql = "UPDATE event SET categories_id=?,Nom=?,Date_event=?,Description=?,Lieu_event=?,Prix=?,Nbr_participant=?,Photo=?,etat=? WHERE id=?";
            PreparedStatement statement = cnx.prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
           try {
               statement.setInt(1, Integer.valueOf(e.getCategories_id()));
@@ -70,6 +70,7 @@ public class EventServices
               statement.setString(8, e.getPhoto());
               statement.setInt(9, e.getEtat());  //
               statement.setInt(10, e.getId());
+              System.out.println(statement);
               statement.executeUpdate();
               System.out.println("update done");
         } catch (SQLException ex) {
@@ -112,7 +113,7 @@ public class EventServices
         }
         return e;
     }
-    
+
     public List<Event> AfficherEvents() throws SQLException {
         List<Event> l = new ArrayList<>();
         try {
@@ -121,24 +122,67 @@ public class EventServices
             rs=stm.executeQuery(req);
             while(rs.next())
             {
-                
-            Event e = new Event();
-            e.setCategories_id(rs.getInt("Categories_id"));
-            e.setNom(rs.getString("Nom"));
-            e.setDate_event(rs.getDate("Date_event"));
-            e.setDescription(rs.getString("description"));
-            e.setLieu_event(rs.getString("Lieu_event"));
-            e.setPrix(rs.getDouble("Prix"));
-            e.setPhoto(rs.getString("Photo"));
-            e.setNbr_participant(rs.getInt("Nbr_participant"));
-            e.setEtat(rs.getInt("etat"));  //
+
+                Event e = new Event();
+                e.setId(rs.getInt("id"));
+                e.setCategories_id(rs.getInt("Categories_id"));
+                e.setNom(rs.getString("Nom"));
+                e.setDate_event(rs.getDate("Date_event"));
+                e.setDescription(rs.getString("description"));
+                e.setLieu_event(rs.getString("Lieu_event"));
+                e.setPrix(rs.getDouble("Prix"));
+                e.setPhoto(rs.getString("Photo"));
+                e.setNbr_participant(rs.getInt("Nbr_participant"));
+                e.setEtat(rs.getInt("etat"));  //
                 l.add(e);
-            
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(EventServices.class.getName()).log(Level.SEVERE, null, ex);
         }
         return l;
     }
-   
+
+    public List<Event> AfficherAcceptedEvents() throws SQLException {
+        List<Event> l = new ArrayList<>();
+        try {
+            String req="SELECT * FROM event where etat = 1";
+            stm=cnx.createStatement();
+            rs=stm.executeQuery(req);
+            while(rs.next())
+            {
+
+                Event e = new Event();
+                e.setId(rs.getInt("id"));
+                e.setCategories_id(rs.getInt("Categories_id"));
+                e.setNom(rs.getString("Nom"));
+                e.setDate_event(rs.getDate("Date_event"));
+                e.setDescription(rs.getString("description"));
+                e.setLieu_event(rs.getString("Lieu_event"));
+                e.setPrix(rs.getDouble("Prix"));
+                e.setPhoto(rs.getString("Photo"));
+                e.setNbr_participant(rs.getInt("Nbr_participant"));
+                e.setEtat(rs.getInt("etat"));  //
+                l.add(e);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EventServices.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return l;
+    }
+    
+    public void ValiderEvent(int id,int etat ) throws SQLException
+    {
+        String sql = "UPDATE event SET `etat`='"+etat+ "' WHERE id='"+id+"' ";
+           pst= cnx.prepareStatement(sql);
+             try {
+              
+              pst.executeUpdate();
+              System.out.println("update done");
+        } catch (SQLException ex) {
+            Logger.getLogger(EventServices.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+     
 }

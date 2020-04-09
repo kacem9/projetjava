@@ -40,7 +40,7 @@ public class Categories_event
 
     @Override
     public String toString() {
-        return "Categories_event{" + "id=" + id + ", type=" + type + '}';
+        return type;
     }
     
     

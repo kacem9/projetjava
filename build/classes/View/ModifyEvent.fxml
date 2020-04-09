@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -13,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="519.0"  prefWidth="810.0" style="-fx-background-color: #c4c4c4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ModifyEventController">
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="519.0" prefWidth="810.0" style="-fx-background-color: #c4c4c4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ModifyEventController">
     <children>
       <AnchorPane opacity="0.41" prefHeight="290.0" prefWidth="795.0" style="-fx-background-color: black;">
          <effect>
@@ -48,14 +47,14 @@
                </children>
             </VBox>
             <Label fx:id="Nbr_participant" layoutX="215.0" layoutY="261.0" prefHeight="44.0" prefWidth="85.0" text="Nbr_participant" />
-            <Button fx:id="btnModifiyE" layoutX="464.0" layoutY="266.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="106.0" style="-fx-background-color: #274f7d;" onAction="#Modifiy" text="Modifiy">
+            <Button fx:id="btnModifiyE" layoutX="464.0" layoutY="266.0" mnemonicParsing="false" onAction="#Modifiy" prefHeight="55.0" prefWidth="106.0" style="-fx-background-color: #274f7d;" text="Modifiy">
                <effect>
                   <InnerShadow height="0.0" radius="0.9824999999999999" width="5.93" />
                </effect>
             </Button>
             <Button fx:id="btnPhoto" layoutX="431.0" layoutY="184.0" mnemonicParsing="false" onAction="#choiceFileAction" prefHeight="44.0" prefWidth="145.0" style="-fx-background-color: grey;" text="Choise a file" />
             <TextField fx:id="tfnNbr_participant" layoutX="177.0" layoutY="298.0" prefHeight="26.0" prefWidth="188.0" />
-            <ChoiceBox fx:id="cbnCategories" layoutX="7.0" layoutY="298.0" prefWidth="150.0" />
+            <ComboBox fx:id="cbCategories" layoutX="11.0" layoutY="299.0" prefWidth="150.0" />
          </children>
       </AnchorPane>
    </children>

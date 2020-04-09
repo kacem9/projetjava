@@ -58,7 +58,7 @@
                   <Font size="21.0" />
                </font>
             </Button>
-            <Button fx:id="Annuler" layoutX="20.0" layoutY="165.0" mnemonicParsing="false"  prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #c0453d;" text="Annuler" textFill="WHITE">
+            <Button fx:id="Annuler" layoutX="20.0" onAction="#AnnulerParticipation"  layoutY="165.0" mnemonicParsing="false"  prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #c0453d;" text="Annuler" textFill="WHITE">
                <effect>
                   <InnerShadow />
                </effect>

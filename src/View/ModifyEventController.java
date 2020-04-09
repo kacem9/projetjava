@@ -5,7 +5,9 @@
  */
 package View;
 
+import Entites.Categories_event;
 import Entites.Event;
+import Service.CategoriesServices;
 import Service.EventServices;
 import java.awt.Desktop;
 import java.io.File;
@@ -47,7 +49,7 @@ import javafx.stage.Stage;
  * @author root
  */
 public class ModifyEventController implements Initializable {
- ObservableList<String> options=FXCollections.observableArrayList("Evénement sportif","Bourse aux velos","Balade avec les velos");
+ ObservableList<String> options=FXCollections.observableArrayList();
     @FXML
      Button btnModifiyE;
     @FXML
@@ -86,7 +88,7 @@ public class ModifyEventController implements Initializable {
     private AnchorPane anchorPane;
     
     @FXML
-     private ChoiceBox cbnCategories;
+     private ComboBox<Categories_event> cbnCategories;
     Event e;
     Event ev = new Event();
     /**
@@ -95,16 +97,22 @@ public class ModifyEventController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        cbnCategories.setItems(options);
+        
+        //cbnCategories.setItems(options);
         Platform.runLater(()->{
             System.out.println(e);
-               dpnDate_event.getEditor().setText(String.valueOf(e.getDate_event()));
+             dpnDate_event.getEditor().setText(String.valueOf(e.getDate_event()));
                tfnPrice.setText(String.valueOf(e.getPrix()));
                tfnNom.setText(e.getNom());
                tfnLieu_event.setText(e.getLieu_event());
                tfnNbr_participant.setText(String.valueOf(e.getNbr_participant()));
                tanDescription.setText(e.getDescription());
-               cbnCategories.setValue(e.getCategories_id());
+               CategoriesServices cs = new CategoriesServices();
+            try {
+                cbnCategories.setValue(cs.getCategorieById(e.getCategories_id()));
+            } catch (SQLException ex) {
+                Logger.getLogger(ModifyEventController.class.getName()).log(Level.SEVERE, null, ex);
+            }
                btnPhoto.setText(e.getPhoto());
                
                FileInputStream input;
@@ -137,13 +145,18 @@ public class ModifyEventController implements Initializable {
             ev.setNbr_participant(Integer.valueOf(tfnNbr_participant.getText()));
             ev.setDescription(tanDescription.getText());
             ev.setPhoto(btnPhoto.getText());
-           
+            //a mmodifier !!!!
+            ev.setCategories_id(cbnCategories.getValue().getId());
             try {
                EventServices es = new EventServices();
+                System.out.println("azaz.............");
+
+                System.out.println(ev.toString());
                es.ModifierEvent(ev);
-                System.out.println("ok");
+
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+                System.out.println("ex.............");
+                ex.printStackTrace();
         }
             System.out.println("Modification terminé");
            
@@ -157,7 +170,7 @@ public class ModifyEventController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Evenement enregistré avec succès.");
         alert.setHeaderText(null);
-        alert.setContentText("L'evenement " + e.getNom() + " has been modified.");
+//        alert.setContentText("L'evenement " + e.getNom() + " has been modified.");
         alert.showAndWait();
         }
     }

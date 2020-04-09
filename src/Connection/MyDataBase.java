@@ -17,7 +17,7 @@ import java.sql.Connection ;
  */
 public class MyDataBase 
 {
-    private String url="jdbc:mysql://127.0.0.1:3306/velo";
+    private String url="jdbc:mysql://localhost:3306/velo";
     private String login="root";
     private String pwd="";
     private Connection cnx;
@@ -25,6 +25,12 @@ public class MyDataBase
     
     private MyDataBase(){
         try {
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+
             cnx=DriverManager.getConnection(url, login, pwd);
             System.out.println("Connexion établie");
         } catch (SQLException ex) {

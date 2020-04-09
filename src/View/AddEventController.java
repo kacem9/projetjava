@@ -5,7 +5,9 @@
  */
 package View;
 
+import Entites.Categories_event;
 import Entites.Event;
+import Entites.Participation;
 import Service.EventServices;
 import java.awt.Desktop;
 import java.io.File;
@@ -13,8 +15,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -31,6 +37,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import Service.* ;
+import java.awt.List;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * FXML Controller class
@@ -39,7 +52,7 @@ import javafx.stage.Stage;
  */
 public class AddEventController implements Initializable {
 
-    ObservableList<String> options=FXCollections.observableArrayList("Evénement sportif","Bourse aux velos","Balade avec les velos");
+
 
     @FXML
      Button btSaveE;
@@ -72,24 +85,33 @@ public class AddEventController implements Initializable {
     @FXML
      Label Nom;
     @FXML
-     Label Price;
+   private  Label Price;
     @FXML
-     Label Date_event; 
+    private Label Date_event; 
     @FXML
-     private ChoiceBox cbCategories;
-   
+     private ComboBox<Categories_event> cbCategories;
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        cbCategories.setItems(options);
+         ArrayList<Categories_event> lesCategories= new ArrayList<>();
+        CategoriesServices cs = new CategoriesServices();
+        try {
+            lesCategories=cs.getAllCategorie();
+        } catch (SQLException ex) {
+            Logger.getLogger(AddEventController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ObservableList obs = FXCollections.observableArrayList(lesCategories);
+        cbCategories.setItems(obs);
+        
+       
     }    
          
     @FXML
     private void Save(ActionEvent event) throws SQLException {
-        if (dpDate_event.getEditor().getText().length() == 0 || tfPrice.getText().length() == 0 || tfNom.getText().length() == 0 || tfLieu_event.getText().length() == 0 || tfNbr_participant.getText().length() == 0 || taDescription.getText().length() == 0)
+        if ( dpDate_event.getEditor().getText().length() == 0 || tfPrice.getText().length() == 0 || tfNom.getText().length() == 0 || tfLieu_event.getText().length() == 0 || tfNbr_participant.getText().length() == 0 || taDescription.getText().length() == 0)
         {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("veuillez remplir!!");
@@ -106,8 +128,8 @@ public class AddEventController implements Initializable {
             }
         else{
             
-            Event ev= new Event(1, 2, tfNom.getText(), Date.valueOf(dpDate_event.getValue()), taDescription.getText(), tfLieu_event.getText(),btPhoto.getText(), Double.valueOf(tfPrice.getText()),Integer.parseInt(tfNbr_participant.getText()), 0);
-           
+            Event ev= new Event(1,  cbCategories.getValue().getId(), tfNom.getText(), Date.valueOf(dpDate_event.getValue()), taDescription.getText(), tfLieu_event.getText(),btPhoto.getText(), Double.valueOf(tfPrice.getText()),Integer.parseInt(tfNbr_participant.getText()), 0);
+            System.out.println("ok");
                try {
                       EventServices   es= new EventServices();
                       es.AjouterEvent(ev);
@@ -143,4 +165,9 @@ public class AddEventController implements Initializable {
             }
     }
     }
+   
+   
+   
+                    
 }
+

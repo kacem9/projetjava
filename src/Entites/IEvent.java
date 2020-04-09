@@ -19,4 +19,5 @@ public interface IEvent
     public void SupprimerEvent(Event e) throws SQLException;
     public Event RechercherEvent(String Nom) throws SQLException;
     public List<Event> AfficherEvent() throws SQLException;
+    public void AnnulerParticipation(Participation p) throws SQLException;
 }

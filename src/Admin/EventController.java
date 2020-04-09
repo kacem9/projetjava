@@ -6,6 +6,7 @@
 package Admin;
 
 import Entites.Event;
+import Entites.Participation;
 import Service.EventServices;
 import java.net.URL;
 import java.sql.SQLException;
@@ -116,7 +117,7 @@ public class EventController implements Initializable {
      @FXML
         private void SupprimerEventAction(ActionEvent event) throws SQLException {
             Event e=tvEvent.getSelectionModel().getSelectedItem();
-        
+            
         if(e==null){
         
            System.out.println("Aucun événement séléctionné");
@@ -157,7 +158,7 @@ public class EventController implements Initializable {
         
         @FXML
         private void ValiderEventAction(ActionEvent event) throws SQLException {
-            //ki nenzel al btn valider el etat twali 1 ???????
+           
             Event e=tvEvent.getSelectionModel().getSelectedItem();
             if(e==null){
         
@@ -170,6 +171,7 @@ public class EventController implements Initializable {
             alert.showAndWait();
      
         }else {
+                EventServices es=new EventServices();
                String nom_P=e.getNom();
             try {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -178,7 +180,7 @@ public class EventController implements Initializable {
                 alert.setContentText("Etes-vous sur de vouloir valider l'évenement " +" "+ e.getNom());
                 Optional<ButtonType> action = alert.showAndWait(); 
                 if (action.get() == ButtonType.OK) {
-                    e.setEtat(1);
+                    es.ValiderEvent(e.getId(), 1);
                     System.out.println("valider");
                     Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
                     alert1.setTitle("Succés!");

@@ -36,7 +36,7 @@ public class Fos_User
     public Fos_User() {
     }
 
-    public Fos_User(int id, String username, String username_canonical, String email, String email_canonical, String password, String roles, int Cin, String Nom, String Prenom, String Sexe, Date Date_naissance, int Num_tel, String Adresse, String Poste, String Civilite, String Pays, String Ville, String Code_postal) {
+    public Fos_User(int id, String username, String username_canonical, String email, String email_canonical, String password, String roles, int Cin, String Nom, String Prenom, String Sexe,  int Num_tel, String Adresse, String Poste, String Civilite, String Pays, String Ville, String Code_postal) {
         this.id = id;
         this.username = username;
         this.username_canonical = username_canonical;
@@ -48,7 +48,7 @@ public class Fos_User
         this.Nom = Nom;
         this.Prenom = Prenom;
         this.Sexe = Sexe;
-        this.Date_naissance = Date_naissance;
+       
         this.Num_tel = Num_tel;
         this.Adresse = Adresse;
         this.Poste = Poste;
@@ -58,9 +58,7 @@ public class Fos_User
         this.Code_postal = Code_postal;
     }
 
-    public Fos_User(int i, String kacem, String kacem0, String kacemesprittn, String kacemesprittn0, String kacem1, String chef_dequipe, int i0, String kacem2, String yedes, String homme, int i1, String korba, String korba0, String korba1, String korba2, String korba3, String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
    
 

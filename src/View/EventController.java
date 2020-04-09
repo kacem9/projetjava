@@ -5,6 +5,7 @@
  */
 package View;
 
+import Entites.Categories_event;
 import Entites.Event;
 import Service.EventServices;
 import java.io.IOException;
@@ -51,7 +52,7 @@ public class EventController implements Initializable {
     @FXML
      private TableColumn<Event, String> tcNom;
     @FXML
-     private TableColumn<Event, String> tcCategories;
+     private TableColumn<Event, Categories_event> tcCategories;
     @FXML
      private TableColumn<Event, String> tcDate_event;
     @FXML
@@ -120,7 +121,7 @@ public class EventController implements Initializable {
   @FXML
     private void modifierEventAction(ActionEvent event) throws IOException  {
              Event e=tvEvent.getSelectionModel().getSelectedItem();
-
+      System.out.println(e);
 if(e==null){
         
            System.out.println("Aucun événement séléctionné");
