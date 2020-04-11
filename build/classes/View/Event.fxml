@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="View.EventController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.EventController">
     <children>
       <AnchorPane opacity="0.41" prefHeight="290.0" prefWidth="795.0" style="-fx-background-color: black;">
          <effect>
@@ -48,9 +48,9 @@
             </TableView>
          </items>
       </SplitPane>
-      <AnchorPane layoutX="561.0" layoutY="319.0" prefHeight="259.0" prefWidth="219.0" style="-fx-background-color: #c0c0c0;">
+      <AnchorPane layoutX="551.0" layoutY="319.0" prefHeight="270.0" prefWidth="229.0" style="-fx-background-color: #c0c0c0;">
          <children>
-            <Button fx:id="add" layoutX="26.0" layoutY="28.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #274f7d;" onAction="#ajouterEventAction" text="Add Event" textFill="WHITE">
+            <Button fx:id="add" layoutX="24.0" layoutY="22.0" mnemonicParsing="false" onAction="#ajouterEventAction" prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #274f7d;" text="Add Event" textFill="WHITE">
                <effect>
                   <InnerShadow />
                </effect>
@@ -65,7 +65,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="Modifiy" layoutX="27.0" layoutY="99.0" mnemonicParsing="false" opacity="0.83" prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #6f6f6f;" onAction="#modifierEventAction" text="Modifiy Event" textFill="WHITE">
+            <Button fx:id="Modifiy" layoutX="24.0" layoutY="82.0" mnemonicParsing="false" onAction="#modifierEventAction" opacity="0.83" prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #6f6f6f;" text="Modifiy Event" textFill="WHITE">
                <effect>
                   <InnerShadow height="10.5" radius="2.125" width="0.0" />
                </effect>
@@ -73,7 +73,7 @@
                   <Font size="21.0" />
                </font>
             </Button>
-            <Button fx:id="remove" onAction="#SupprimerEventAction" layoutX="28.0" layoutY="164.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #c0453d;" text="Delete Event" textFill="WHITE">
+            <Button fx:id="remove" layoutX="24.0" layoutY="141.0" mnemonicParsing="false" onAction="#SupprimerEventAction" prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #c0453d;" text="Delete Event" textFill="WHITE">
                <effect>
                   <InnerShadow />
                </effect>
@@ -87,6 +87,11 @@
                      </image>
                   </ImageView>
                </graphic>
+            </Button>
+            <Button fx:id="Print" onAction="#generatepdf" layoutX="24.0" layoutY="200.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #05052a;" text="Print" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
             </Button>
              
          </children>

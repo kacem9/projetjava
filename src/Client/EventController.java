@@ -5,11 +5,14 @@
  */
 package Client;
 
+import Entites.Categories_event;
 import Entites.Event;
 import Entites.Fos_User;
 import Entites.Participation;
+import Service.CategoriesServices;
 import Service.EventServices;
 import Service.ParticipationServices;
+import View.AddEventController;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -25,9 +28,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 
@@ -53,7 +60,19 @@ public class EventController implements Initializable
      private TableColumn<Event, String> tcPrice;
     @FXML
     private TableView<Event> tvEvent;
+    @FXML
+    private TextField tfSearch;
+    @FXML
+     private ComboBox<String> cbSearch;
+    @FXML
+     private ComboBox<String> cbtrie;
+    @FXML
+    private Button Annuler;
+    @FXML
+    private Button Participer;
+
     Event ev = new Event();
+    String s ;
     /**
      * Initializes the controller class.
      */
@@ -83,11 +102,41 @@ public class EventController implements Initializable
 
             tvEvent.setItems(fle);
             int nbe=tvEvent.getItems().size();
+            cbSearch.getItems().addAll("Nom", "Description", "Lieu_event");
+        cbSearch.setValue("Nom");
+        tfSearch.setPromptText("Search here!");
+        tfSearch.setOnKeyReleased(keyEvent ->
+        {
+            switch (cbSearch.getValue())//Switch on choiceBox value
+            {
+                case "Nom":
+                    fle.setPredicate(e-> e. getNom().toLowerCase().contains(tfSearch.getText().toLowerCase().trim()));//filter table by first name
+                    break;
+                case "Descriptin":
+                    fle.setPredicate(e -> e.getDescription().toLowerCase().contains(tfSearch.getText().toLowerCase().trim()));//filter table by first name
+                    break;
+                case "Lieu_event":
+                    fle.setPredicate(e -> e.getLieu_event().toLowerCase().contains(tfSearch.getText().toLowerCase().trim()));//filter table by first name
+                    break;
 
+                 
+            }
+        });
+        cbSearch.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) ->
+        {//reset table and textfield when new choice is selected
+            if (newVal != null)
+            {
+                tfSearch.setText("");
+                fle.setPredicate(null);//This is same as saying flPerson.setPredicate(p->true);
+            }
+        });
+           
         }else
        {
            System.out.println("il n'y a pas des evenement valider !!!!");
        }
+
+       
     } 
     
      @FXML
@@ -110,15 +159,16 @@ public class EventController implements Initializable
 
            ArrayList<Event> le;
        
-            le = (ArrayList<Event>) es.AfficherEvents();
+            le = (ArrayList<Event>) es.AfficherAcceptedEvents();
             ObservableList<Event> data = FXCollections.observableArrayList(le);
             tcNom.setCellValueFactory(new PropertyValueFactory<>("Nom"));
-            tcCategories.setCellValueFactory(new PropertyValueFactory<>("Categories"));
+            tcCategories.setCellValueFactory(new PropertyValueFactory<>("Categories_id"));
             tcDate_event.setCellValueFactory(new PropertyValueFactory<>("Date_event"));
             tcDescription.setCellValueFactory(new PropertyValueFactory<>("Description"));
             tcNbr_participant.setCellValueFactory(new PropertyValueFactory<>("Nbr_participant"));
             tcLieu_event.setCellValueFactory(new PropertyValueFactory<>("Lieu_event"));
-            tcPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
+            tcPrice.setCellValueFactory(new PropertyValueFactory<>("Prix"));
+            
 
             tvEvent.setItems(data);
         } catch (SQLException ex) {
@@ -130,6 +180,7 @@ public class EventController implements Initializable
         private void ParticiperEventAction(ActionEvent event) throws SQLException { 
              Event e=tvEvent.getSelectionModel().getSelectedItem();
              Participation p = new Participation();
+             System.out.println(p.toString());
              Fos_User u = new Fos_User(1, "kacem", "yedes", "yedes@esprit.tn", "yedes@esprit.tn", "azerty", "chef d'equipe", 1, "kacem", "yedes", "homme", 55845804, "korba", "korba", "korba", "korba", "korba", "8070");
         // ylzem kol admin andou l ha9 yparticipi ken mara f nafs el  event w andou lha9 yannuli ken mara event
         if(e==null){
@@ -149,8 +200,9 @@ public class EventController implements Initializable
                 alert.setContentText("Etes-vous sur de vouloir de participerà l'évenement " +" "+ e.getNom());
                 Optional<ButtonType> action = alert.showAndWait();
                 if (action.get() == ButtonType.OK) {
-                    // System.out.println("sup1");
-                    ps.Participer(e, u);
+                    
+                    ps.Participer(u,e);
+                    System.out.println(p.toString());
                     Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
                     alert1.setTitle("Succés!");
                     alert1.showAndWait();
@@ -179,6 +231,7 @@ public class EventController implements Initializable
         }else {
             ParticipationServices ps = new ParticipationServices();
             Participation p = new Participation();
+            System.out.println(p.toString());
             Fos_User u = new Fos_User(1, "kacem", "yedes", "yedes@esprit.tn", "yedes@esprit.tn", "azerty", "chef d'equipe", 1, "kacem", "yedes", "homme", 55845804, "korba", "korba", "korba", "korba", "korba", "8070");
             try {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -187,8 +240,8 @@ public class EventController implements Initializable
                 alert.setContentText("Etes-vous sur de vouloir Annuler la participation dans l'evenement " +" "+ e.getNom());
                 Optional<ButtonType> action = alert.showAndWait();
                 if (action.get() == ButtonType.OK) {
+                    
                     ps.AnnulerParticipation(p, u);
-                    p.toString();
                     Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
                     alert1.setTitle("Succés!");
                     alert1.setHeaderText(null);
@@ -205,4 +258,6 @@ public class EventController implements Initializable
          refresh();
         }
         }
+       
+
 }

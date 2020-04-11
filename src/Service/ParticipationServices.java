@@ -33,14 +33,14 @@ public class ParticipationServices
         cnx=MyDataBase.getInstance().getCnx();
     }
     
-    public void Participer(Event e,Fos_User u) throws SQLException {
+    public void Participer(Fos_User u,Event e) throws SQLException {
         
         try {
-            String req="INSERT INTO participation ( id_user, event) VALUES (?,?)";
+            String req="INSERT INTO participation (id_user,event) VALUES (?,?)";
             pst=cnx.prepareStatement(req);
             pst.setInt(1, u.getId());
             pst.setInt(2, e.getId());
-            
+            System.out.println(pst);
             pst.executeUpdate();
             System.out.println("participation done");
         } catch (SQLException ex) {
@@ -55,6 +55,7 @@ public class ParticipationServices
                         pst=cnx.prepareStatement(req);
                         pst.setInt(1,p.getId_participation());
                         pst.executeUpdate();
+                        System.out.println(pst);
                         System.out.println(" done");
            } catch (SQLException ex) {
             Logger.getLogger(EventServices.class.getName()).log(Level.SEVERE, null, ex);

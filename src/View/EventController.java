@@ -7,7 +7,11 @@ package View;
 
 import Entites.Categories_event;
 import Entites.Event;
+import Entites.Pdf;
 import Service.EventServices;
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.DocumentException;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -49,6 +53,8 @@ public class EventController implements Initializable {
     private Button Modifiy;
     @FXML
     private Button remove;
+    @FXML
+    private Button Print;
     @FXML
      private TableColumn<Event, String> tcNom;
     @FXML
@@ -192,7 +198,7 @@ if(e==null){
             tcDescription.setCellValueFactory(new PropertyValueFactory<>("Description"));
             tcNbr_participant.setCellValueFactory(new PropertyValueFactory<>("Nbr_participant"));
             tcLieu_event.setCellValueFactory(new PropertyValueFactory<>("Lieu_event"));
-            tcPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
+            tcPrice.setCellValueFactory(new PropertyValueFactory<>("Prix"));
 
             tvEvent.setItems(data);
         } catch (SQLException ex) {
@@ -242,4 +248,15 @@ if(e==null){
         }
         
         }
+        
+         @FXML
+    private void generatepdf(ActionEvent event) throws DocumentException, BadElementException, IOException, FileNotFoundException, InterruptedException, SQLException {
+        Pdf pd=new Pdf();
+        try{
+        pd.GeneratePdf("list of event");
+            System.out.println("impression done");
+        } catch (Exception ex) {
+            Logger.getLogger(EventController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
 }

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
@@ -50,7 +53,7 @@
       </SplitPane>
       <AnchorPane layoutX="561.0" layoutY="319.0" prefHeight="259.0" prefWidth="219.0" style="-fx-background-color: #c0c0c0;">
          <children>
-            <Button fx:id="Participer" onAction="#ParticiperEventAction" layoutX="20.0" layoutY="85.0" mnemonicParsing="false"  opacity="0.83" prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #6f6f6f;" text="Participer" textFill="WHITE">
+            <Button fx:id="Participer" layoutX="19.0" layoutY="130.0" mnemonicParsing="false" onAction="#ParticiperEventAction" opacity="0.83" prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #6f6f6f;" text="Participer" textFill="WHITE">
                <effect>
                   <InnerShadow height="10.5" radius="2.125" width="0.0" />
                </effect>
@@ -58,7 +61,7 @@
                   <Font size="21.0" />
                </font>
             </Button>
-            <Button fx:id="Annuler" layoutX="20.0" onAction="#AnnulerParticipation"  layoutY="165.0" mnemonicParsing="false"  prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #c0453d;" text="Annuler" textFill="WHITE">
+            <Button fx:id="Annuler" layoutX="19.0" layoutY="189.0" mnemonicParsing="false" onAction="#AnnulerParticipation" prefHeight="45.0" prefWidth="182.0" style="-fx-background-color: #c0453d;" text="Annuler" textFill="WHITE">
                <effect>
                   <InnerShadow />
                </effect>
@@ -66,12 +69,25 @@
                   <Font size="21.0" />
                </font>
             </Button>
+            <TextField fx:id="tfSearch" layoutX="52.0" layoutY="36.0" prefHeight="32.0" prefWidth="149.0" />
+            <Label layoutX="54.0" layoutY="4.0" prefHeight="32.0" prefWidth="141.0" text="Recherche">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="32.0" fitWidth="37.0" layoutX="9.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/rech.PNG" />
+               </image>
+            </ImageView>
+            <ComboBox fx:id="cbSearch" layoutX="54.0" layoutY="73.0" prefHeight="25.0" prefWidth="55.0" />
              
          </children>
          <effect>
             <DropShadow />
          </effect>
       </AnchorPane>
+      <ComboBox fx:id="cbtrie" layoutX="561.0" layoutY="205.0" prefHeight="25.0" prefWidth="83.0" promptText="Trie par" />
    </children>
    <effect>
       <InnerShadow />

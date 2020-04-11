@@ -14,8 +14,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -184,5 +187,41 @@ public class EventServices
             Logger.getLogger(EventServices.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-     
+    
+     public List<Event> trieEvent(String s) 
+    {
+        String requete = "SELECT * FROM event order by "+s;
+        PreparedStatement pst;
+            List<Event> list = new ArrayList<>();
+
+        try {
+            pst = cnx.prepareStatement(requete);
+            ResultSet rs = pst.executeQuery();
+            while(rs.next())
+            {
+                
+            Event e = new Event();
+            e.setId(rs.getInt("id"));
+            e.setCategories_id(rs.getInt("Categories_id"));
+            e.setNom(rs.getString("Nom"));
+            e.setDate_event(rs.getDate("Date_event"));
+            e.setDescription(rs.getString("description"));
+            e.setLieu_event(rs.getString("Lieu_event"));
+            e.setPrix(rs.getDouble("Prix"));
+            e.setPhoto(rs.getString("Photo"));
+            e.setNbr_participant(rs.getInt("Nbr_participant"));
+            e.setEtat(rs.getInt("etat"));  //
+            list.add(e);
+            }
+            
+        
+        } catch (SQLException ex) {
+            Logger.getLogger(EventServices.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       return list;
+          
+        
+    }
+
+        
 }
