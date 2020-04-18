@@ -38,9 +38,10 @@ public class Event
         this.Photo = Photo;
         this.Prix = Prix;
         this.Nbr_participant = Nbr_participant;
-        
         this.User = User;
     }
+
+   
     
     public int getId() {
         return id;
@@ -54,9 +55,13 @@ public class Event
         return categories_id;
     }
 
+    
+
     public void setCategories_id(int categories_id) {
         this.categories_id = categories_id;
     }
+
+ 
 
     public String getNom() {
         return Nom;

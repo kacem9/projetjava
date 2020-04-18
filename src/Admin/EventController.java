@@ -106,7 +106,7 @@ public class EventController implements Initializable {
             tcDescription.setCellValueFactory(new PropertyValueFactory<>("Description"));
             tcNbr_participant.setCellValueFactory(new PropertyValueFactory<>("Nbr_participant"));
             tcLieu_event.setCellValueFactory(new PropertyValueFactory<>("Lieu_event"));
-            tcPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
+            tcPrice.setCellValueFactory(new PropertyValueFactory<>("Prix"));
 
             tvEvent.setItems(data);
         } catch (SQLException ex) {

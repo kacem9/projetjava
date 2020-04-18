@@ -146,7 +146,7 @@ public class ModifyEventController implements Initializable {
             ev.setDescription(tanDescription.getText());
             ev.setPhoto(btnPhoto.getText());
             //a mmodifier !!!!
-            ev.setCategories_id(cbnCategories.getValue().getId());
+            ev.setCategories_id(1);
             try {
                EventServices es = new EventServices();
                 System.out.println("azaz.............");

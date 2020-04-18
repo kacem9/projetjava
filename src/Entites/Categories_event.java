@@ -22,6 +22,10 @@ public class Categories_event
         this.type = type;
     }
 
+    public Categories_event(String type) {
+        this.type = type;
+    }
+
     public int getId() {
         return id;
     }

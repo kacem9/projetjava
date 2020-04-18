@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="626.0" prefWidth="1336.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UserController">
+   <children>
+      <TextField fx:id="Nom" layoutX="549.0" layoutY="145.0" prefHeight="32.0" prefWidth="278.0" promptText="Nom" />
+      <TextField fx:id="Prenom" layoutX="549.0" layoutY="203.0" prefHeight="32.0" prefWidth="278.0" promptText="Prenom" />
+      <TextField fx:id="Username" layoutX="878.0" layoutY="243.0" prefHeight="32.0" prefWidth="278.0" promptText="Username" />
+      <TextField fx:id="Ville" layoutX="548.0" layoutY="266.0" prefHeight="32.0" prefWidth="278.0" promptText="Ville" />
+      <Button fx:id="btnSave" layoutX="668.0" layoutY="552.0" mnemonicParsing="false" onAction="#AjouterUserAction" prefHeight="32.0" prefWidth="278.0" styleClass="button2" text="Save" />
+      <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="492.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Capture.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="602.0" fitWidth="1007.0" layoutX="-463.0" layoutY="-7.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="-463.0" AnchorPane.rightAnchor="845.2985229492188" AnchorPane.topAnchor="-7.0">
+         <image>
+            <Image url="@../images/velo.PNG" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="526.0" layoutY="32.0" prefHeight="23.0" prefWidth="180.0" text="Register Form" textFill="#9a8e8e">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Label>
+    
+      <PasswordField fx:id="Password" layoutX="881.0" layoutY="420.0" prefHeight="32.0" prefWidth="272.0" promptText="Password" />
+      <TextField fx:id="Cin" layoutX="548.0" layoutY="85.0" prefHeight="32.0" prefWidth="278.0" promptText="Cin" />
+      <TextField fx:id="Code_postal" layoutX="865.0" layoutY="49.0" prefHeight="32.0" prefWidth="278.0" promptText="Code_postal" />
+      <TextField fx:id="Pays" layoutX="866.0" layoutY="117.0" prefHeight="32.0" prefWidth="278.0" promptText="Pays" />
+      <Label fx:id="testemail1" layoutX="881.0" layoutY="203.0" prefHeight="32.0" prefWidth="260.0" />
+      <TextField fx:id="Num_tel" layoutX="879.0" layoutY="297.0" prefHeight="32.0" prefWidth="278.0" promptText="Num_tel" />
+      <TextField fx:id="Poste" layoutX="878.0" layoutY="363.0" prefHeight="32.0" prefWidth="278.0" promptText="Poste" />
+      <TextField fx:id="Email" layoutX="878.0" layoutY="171.0" prefHeight="32.0" prefWidth="278.0" promptText="Email" />
+      <TextField fx:id="Adresse" layoutX="542.0" layoutY="484.0" prefHeight="25.0" prefWidth="272.0" promptText="Adresse" />
+      <Button layoutX="542.0" layoutY="431.0" mnemonicParsing="false" onAction="#choiceFileAction" prefHeight="44.0" prefWidth="272.0" text="Photo">
+         <graphic>
+            <ImageView fx:id="img" fitHeight="32.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true" />
+         </graphic>
+      </Button>
+      <ChoiceBox fx:id="Role" layoutX="912.0" layoutY="509.0" prefHeight="32.0" prefWidth="211.0" />
+      <ChoiceBox fx:id="Civilite" layoutX="548.0" layoutY="323.0" prefHeight="25.0" prefWidth="260.0" />
+      <ChoiceBox fx:id="Sexe" layoutX="548.0" layoutY="351.0" prefHeight="25.0" prefWidth="260.0" />
+      <DatePicker fx:id="Date_naissance" layoutX="562.0" layoutY="388.0" prefHeight="32.0" prefWidth="233.0" />
+      <Hyperlink fx:id="btnSignIn" layoutX="733.0" layoutY="589.0" onAction="#handleButtonAction" text="You have an Account . SignIn" />
+      <Label fx:id="testcode" layoutX="587.0" layoutY="467.0" prefHeight="17.0" prefWidth="0.0" />
+      <Label fx:id="adresse" layoutX="560.0" layoutY="509.0" onMouseExited="#verifAdresse" prefHeight="24.0" prefWidth="217.0" />
+      <Label fx:id="ville" layoutX="579.0" layoutY="301.0" onMouseExited="#verifVille" prefHeight="24.0" prefWidth="217.0" />
+      <Label fx:id="prenom" layoutX="579.0" layoutY="235.0" onMouseExited="#verifPrenom" prefHeight="24.0" prefWidth="217.0" />
+      <Label fx:id="nom" layoutX="580.0" layoutY="175.0" onMouseExited="#verifNom" prefHeight="24.0" prefWidth="217.0" />
+      <Label fx:id="cin" layoutX="534.0" layoutY="117.0" onMouseExited="#verifCin" prefHeight="32.0" prefWidth="307.0" />
+      <Label fx:id="testpassword" layoutX="834.0" layoutY="451.0" onMouseExited="#pw" prefHeight="66.0" prefWidth="340.0" />
+      <Label fx:id="poste" layoutX="902.0" layoutY="392.0" onMouseExited="#verifPoste" prefHeight="24.0" prefWidth="217.0" />
+      <Label fx:id="numtel" layoutX="879.0" layoutY="336.0" onMouseExited="#veriftel" prefHeight="24.0" prefWidth="217.0" />
+      <Label fx:id="username" layoutX="896.0" layoutY="270.0" onMouseExited="#verifUsername" prefHeight="24.0" prefWidth="217.0" />
+      <Label fx:id="pays" layoutX="903.0" layoutY="145.0" onMouseExited="#verifPays" prefHeight="24.0" prefWidth="217.0" />
+      <Label fx:id="code" layoutX="902.0" layoutY="89.0" onMouseExited="#verifcodepostal" prefHeight="24.0" prefWidth="217.0" />
+   </children>
+</AnchorPane>

@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import utils.Session;
 
 /**
  *
@@ -33,12 +34,12 @@ public class ParticipationServices
         cnx=MyDataBase.getInstance().getCnx();
     }
     
-    public void Participer(Fos_User u,Event e) throws SQLException {
+    public void Participer(Event e) throws SQLException {
         
         try {
             String req="INSERT INTO participation (id_user,event) VALUES (?,?)";
             pst=cnx.prepareStatement(req);
-            pst.setInt(1, u.getId());
+            pst.setInt(1, Session.getUser().getId());
             pst.setInt(2, e.getId());
             System.out.println(pst);
             pst.executeUpdate();
@@ -48,17 +49,39 @@ public class ParticipationServices
         }
     }
     
-    public void AnnulerParticipation(Participation p, Fos_User u) throws SQLException 
+    public void AnnulerParticipation(int id_user, int id_event) throws SQLException
     {
         try {
-        String req = "DELETE FROM participation WHERE id_participation =? ";
+        String req = "DELETE FROM participation WHERE id_user =? AND event =?";
                         pst=cnx.prepareStatement(req);
-                        pst.setInt(1,p.getId_participation());
+                        pst.setInt(1,id_user);
+                        pst.setInt(2,id_event);
                         pst.executeUpdate();
                         System.out.println(pst);
                         System.out.println(" done");
            } catch (SQLException ex) {
+            ex.printStackTrace();
             Logger.getLogger(EventServices.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    public boolean checkParticipation(int id_user, int id_event){
+        ResultSet rs = null;
+
+        String req="select * from participation where id_user=? and event=?";
+        try {
+            pst=cnx.prepareStatement(req);
+            pst.setInt(1,id_user);
+            pst.setInt(2,id_event);
+           rs= pst.executeQuery();
+            return rs.next();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+
+        return true;
+
     }
 }

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="431.0" prefWidth="400.0" style="-fx-background-color: #c4c4c4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Reparateur.StatistiqueController">
+   <children>
+      <AnchorPane layoutX="14.0" layoutY="56.0" opacity="0.41" prefHeight="395.0" prefWidth="400.0" style="-fx-background-color: black;">
+         <effect>
+            <InnerShadow choke="0.51" />
+         </effect>
+      </AnchorPane>
+      <ImageView fitHeight="318.0" fitWidth="808.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/parallax.jpg" />
+         </image>
+         <effect>
+            <InnerShadow choke="0.51" height="1.0" radius="0.0" width="0.0" />
+         </effect>
+      </ImageView>
+      <AnchorPane fx:id="anchorpane_center" layoutY="294.0" prefHeight="355.0" prefWidth="805.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <children>
+            <AnchorPane fx:id="anchorpane_right" layoutX="1.0" prefHeight="354.0" prefWidth="803.0" style="-fx-background-color: white;">
+               <children>
+                  <Pane fx:id="statpane" layoutX="2.0" prefHeight="347.0" prefWidth="801.0">
+                     <children>
+                        <PieChart fx:id="statPies" layoutX="329.0" layoutY="176.0" prefHeight="177.0" prefWidth="200.0" />
+                        <Circle fill="#ff681f" focusTraversable="true" layoutX="21.0" layoutY="72.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Text focusTraversable="true" layoutX="39.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="At home" wrappingWidth="81.0">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text focusTraversable="true" layoutX="39.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="At etablissement">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Text>
+                        <Circle fill="#f5b71d" focusTraversable="true" layoutX="21.0" layoutY="107.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                        <PieChart fx:id="statPie" focusTraversable="true" layoutX="329.0" prefHeight="183.0" prefWidth="200.0">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </PieChart>
+                        <Circle fill="#ff681f" focusTraversable="true" layoutX="28.0" layoutY="258.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="#f5b71d" focusTraversable="true" layoutX="28.0" layoutY="292.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Text layoutX="45.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Validated appointement">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="45.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment not validated">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+   <effect>
+      <InnerShadow />
+   </effect>
+</AnchorPane>

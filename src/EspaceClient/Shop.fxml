@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EspaceClient.ShopController">
+        <stylesheets>
+        <URL value="@shop.css" />
+      <URL value="@../../../../../Desktop/PIFXHK-master/src/pidevjfx/GUI/shop.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="shoptable" layoutY="70.0" prefHeight="314.0" prefWidth="806.0" stylesheets="@shop.css" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+        <columns>
+          <TableColumn fx:id="name" maxWidth="279.0" minWidth="-1.0" prefWidth="162.0" text="Categroy" />
+            <TableColumn fx:id="description" maxWidth="279.0" minWidth="-1.0" prefWidth="192.0" text="Description" />
+             <TableColumn fx:id="price_location" maxWidth="200.0" minWidth="-1.0" prefWidth="170.0" text="Price of location" />
+            <TableColumn fx:id="quantity" maxWidth="200.0" minWidth="-1.0" prefWidth="92.0" text="Quantity" />
+            <TableColumn fx:id="add" minWidth="-1.0" prefWidth="252.0" />
+        </columns>
+      </TableView>
+      <Pane prefHeight="70.0" prefWidth="806.0" style="-fx-background-color: green;">
+         <children>
+            <Label fx:id="total" layoutX="655.0" layoutY="33.0" text="0" textFill="#0ed108">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Label>
+            <Label layoutX="708.0" layoutY="40.0" text="TND">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="582.0" layoutY="32.0" text="Total:">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="70.0" fitWidth="92.0" layoutX="480.0">
+               <image>
+                  <Image url="@../images/ic_add_shopping_cart_128_28122.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
