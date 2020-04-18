@@ -1,14 +1,13 @@
-///*
-// * To change this license header, choose License Headers in Project Properties.
-// * To change this template file, choose Tools | Templates
-// * and open the template in the editor.
-// */
+
 package utils;
 //
 ///**
 
+
 import entities.user;
 import service.userService;
+import java.util.HashMap;
+import java.util.Map;
 
 // *
 // * @author USER
@@ -18,7 +17,9 @@ public class Session {
     
     private static Session instance = null;
     private static user user = null;
-    
+
+
+      private final Map<Integer, Integer> panier   = new HashMap<>();
     private Session(user userConnected) {
         super();
         Session.user = userConnected;
@@ -34,6 +35,7 @@ public class Session {
 
         if (Session.instance == null) {
             Session.instance = new Session(userConnected);
+
         }
         return Session.instance;
     }
@@ -60,13 +62,27 @@ public class Session {
         return user;
     }
 
-   
+    public Session() {
+    }
+
+
+
+    
+
 
     public static void setUser(user user) {
         Session.user = user;
     }
 
-  
-    
+    public Map<Integer, Integer> getPanier() {
+        return panier;
+    } 
+  public void addToPanier(Integer id, Integer quantity) {
+        if (panier.containsKey(id)) {
+            panier.replace(id, panier.get(id) + quantity);
+        } else {
+            panier.put(id, quantity);
+        }
+    }   
 
 }

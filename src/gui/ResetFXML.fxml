@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="555.0" prefWidth="908.0" style="-fx-background-color: #f9f9f9;" stylesheets="@loginfxml.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ResetFXMLController">
+   <children>
+      <Button layoutX="578.0" layoutY="179.0" onAction="#genererAction" style="-fx-background-color: #40a84a;" text="Générer un code" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <TextField fx:id="tfemail" alignment="CENTER" layoutX="466.0" layoutY="70.0" onMouseExited="#verifMail" prefHeight="44.0" prefWidth="399.0" promptText="Taper Votre Email">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfcode" alignment="CENTER" layoutX="537.0" layoutY="266.0" onMouseExited="#verfiCode" prefHeight="44.0" prefWidth="258.0" promptText="Coller le code généré">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="tfmail2" alignment="CENTER" layoutX="544.0" layoutY="357.0" onMouseExited="#verifMailb" prefHeight="44.0" prefWidth="258.0" promptText="Tapez votre email">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Button layoutX="641.0" layoutY="544.0" onAction="#UpdatePassword" style="-fx-background-color: #40a84a;" text="Valider" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="testcode" layoutX="572.0" layoutY="322.0" prefHeight="33.0" prefWidth="232.0" />
+      <Label fx:id="testmail" layoutX="549.0" layoutY="132.0" prefHeight="43.0" prefWidth="278.0" />
+      <Label fx:id="testpassword" layoutX="617.0" layoutY="472.0" prefHeight="52.0" prefWidth="232.0" />
+      <Label fx:id="testemail1" layoutX="594.0" layoutY="401.0" prefHeight="33.0" prefWidth="157.0" />
+      <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="484.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Capture.PNG" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="527.0" layoutY="24.0" prefHeight="23.0" prefWidth="180.0" text="Password forgotten" textFill="#9a8e8e">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="tfpassword" layoutX="557.0" layoutY="434.0" onMouseExited="#verifPassword" prefHeight="43.0" prefWidth="232.0" promptText="tapez nouveau mot de passe" />
+      <ImageView fitHeight="691.0" fitWidth="1086.0" layoutX="-559.0" layoutY="-21.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/velo.PNG" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -17,96 +17,88 @@ import javafx.scene.control.TextField;
  * @author Asus
  */
 public class user {
-      int id; 
-    String Cin,Prenom,Nom,Sexe,roles,Civilite,Pays,Ville,Code_postal,Poste,Email,Username,Photo,Adresse,Num_tel,Password,username_canonical,email_canonical,
-          salt ,confirmation_token ;
+
+    int id;
+    String Cin, Prenom, Nom, Sexe, roles, Civilite, Pays, Ville, Code_postal, Poste, Email, Username, Photo, Adresse, Num_tel, Password, username_canonical, email_canonical,
+            salt, confirmation_token;
     //LocalDate Date_naissance;
-   boolean enabled;
-   Timestamp password_requested_at,last_login,Date_naissance;
+    boolean enabled;
+    Timestamp password_requested_at, last_login, Date_naissance;
+    int tentative,etat;
+    public user(String username, String username_canonical, String email, String email_canonical, Boolean enabled, String salt,
+            String password, Timestamp last_login, String confirmation_token, Timestamp password_requested_at, String Roles, String Cine,
+            String nom, String prenom, String sexe, Timestamp date_naissance, String num_tel, String adresse, String poste, String civilite,
+            String pays, String ville, String code_postal, String selectedFile) {
 
-      
-
-    public user(String username, String username_canonical, String email, String email_canonical, Boolean enabled, String salt, 
-            String password, Timestamp last_login, String confirmation_token, Timestamp password_requested_at, String Roles, String Cine, 
-            String nom, String prenom, String sexe, Timestamp date_naissance, String num_tel, String adresse, String poste, String civilite, 
-            String pays, String ville, String code_postal,String selectedFile) {
-        
-          this.Username = username;
-          this.username_canonical = username_canonical;
-           this.Email = email;
+        this.Username = username;
+        this.username_canonical = username_canonical;
+        this.Email = email;
         this.email_canonical = email_canonical;
-              this.enabled = enabled;
-            this.salt = salt;
+        this.enabled = enabled;
+        this.salt = salt;
         this.Password = password;
-                this.last_login=last_login;
-                this.confirmation_token = confirmation_token;
+        this.last_login = last_login;
+        this.confirmation_token = confirmation_token;
         this.password_requested_at = password_requested_at;
         this.roles = Roles;
         this.Cin = Cine;
-          this.Nom = nom;
-this.Prenom = prenom;
- this.Sexe = sexe;
-this.Date_naissance = date_naissance;
-  this.Num_tel = num_tel;
-    this.Adresse = adresse;
-    this.Poste = poste;
-         this.Civilite = civilite;
-         
+        this.Nom = nom;
+        this.Prenom = prenom;
+        this.Sexe = sexe;
+        this.Date_naissance = date_naissance;
+        this.Num_tel = num_tel;
+        this.Adresse = adresse;
+        this.Poste = poste;
+        this.Civilite = civilite;
+
         this.Ville = ville;
-              
-            this.Photo = selectedFile;
-                this.Code_postal = code_postal;  
+
+        this.Photo = selectedFile;
+        this.Code_postal = code_postal;
         this.Pays = pays;
     }
 
+    public user(String username, String email, String Nom, String Prenom, String Roles) {
+        this.Username = username;
 
-
-  
-    public user(String username, String email, String Nom, String Prenom , String Roles) {
-        this.Username = username;  
-           
-            
-            this.Email = email;
-             this.Nom = Nom;
-            this.Prenom = Prenom;
-           this.roles = Roles;    
-
-
+        this.Email = email;
+        this.Nom = Nom;
+        this.Prenom = Prenom;
+        this.roles = Roles;
 
     }
 
-    public user(int id,String username, String username_canonical, String email, String email_canonical, Boolean enabled, String salt, 
-            String password, String confirmation_token, Timestamp password_requested_at, String Roles, String Cine, 
-            String nom, String prenom, String sexe, String num_tel, String adresse, String poste, String civilite, 
+    public user(int id, String username, String username_canonical, String email, String email_canonical, Boolean enabled, String salt,
+            String password, String confirmation_token, Timestamp password_requested_at, String Roles, String Cine,
+            String nom, String prenom, String sexe, String num_tel, String adresse, String poste, String civilite,
             String pays, String ville, String code_postal) {
- this.id=id;
+        this.id = id;
         this.Username = username;
-          this.username_canonical = username_canonical;
-           this.Email = email;
+        this.username_canonical = username_canonical;
+        this.Email = email;
         this.email_canonical = email_canonical;
-              this.enabled = enabled;
-            this.salt = salt;
+        this.enabled = enabled;
+        this.salt = salt;
         this.Password = password;
-                
-                this.confirmation_token = confirmation_token;
+
+        this.confirmation_token = confirmation_token;
         this.password_requested_at = password_requested_at;
         this.roles = Roles;
         this.Cin = Cine;
-          this.Nom = nom;
-this.Prenom = prenom;
- this.Sexe = sexe;
-  this.Num_tel = num_tel;
-    this.Adresse = adresse;
-    this.Poste = poste;
-         this.Civilite = civilite;
-         
-        this.Ville = ville;
-              
-           
-                this.Code_postal = code_postal;  
-        this.Pays = pays;    }
+        this.Nom = nom;
+        this.Prenom = prenom;
+        this.Sexe = sexe;
+        this.Num_tel = num_tel;
+        this.Adresse = adresse;
+        this.Poste = poste;
+        this.Civilite = civilite;
 
-   
+        this.Ville = ville;
+
+        this.Code_postal = code_postal;
+        this.Pays = pays;
+    }
+
     public user(int id, String Cin, String Prenom, String Nom, String Sexe, String roles, String Civilite, String Pays, String Ville, String Code_postal, String Poste, String Email, String Username, String Photo, String Adresse, String Num_tel, String Password, String username_canonical, String email_canonical, String salt, String confirmation_token, boolean enabled, Timestamp password_requested_at, Timestamp last_login, Timestamp Date_naissance) {
         this.id = id;
         this.Cin = Cin;
@@ -135,39 +127,40 @@ this.Prenom = prenom;
         this.Date_naissance = Date_naissance;
     }
 
-   
-
-   
-
-    public user(int id,String username,String email,String password,String role,String Nom, String Prenom) {
- this.id=id;
-        this.Username=username;
-        this.Email=email;
-        this.Password=password;
-        this.roles=role;  
-            this.Nom = Nom;
+    public user(int id, String username, String email, String password, String role, String Nom, String Prenom) {
+        this.id = id;
+        this.Username = username;
+        this.Email = email;
+        this.Password = password;
+        this.roles = role;
+        this.Nom = Nom;
         this.Prenom = Prenom;
 
     }
 //constructeur de get userby id dans userservice
 
-    public user(int id, String Username, String Password) {
+    public user(int id, String Username, String Password,int tentative,int etat) {
         this.id = id;
         this.Username = Username;
         this.Password = Password;
+        this.tentative=tentative;
+        this.etat=etat;
     }
 
+    public user(int id, String Prenom, String Nom, String Email, String Username, String Adresse, String Num_tel, String Password, int tentative, int etat) {
+        this.id = id;
+        this.Prenom = Prenom;
+        this.Nom = Nom;
+        this.Email = Email;
+        this.Username = Username;
+        this.Adresse = Adresse;
+        this.Num_tel = Num_tel;
+        this.Password = Password;
+        this.tentative = tentative;
+        this.etat = etat;
+    }
     
-    
-    
-   
-
-    
-
-  
-
  
-
     public int getId() {
         return id;
     }
@@ -335,8 +328,10 @@ this.Prenom = prenom;
     public void setSalt(String salt) {
         this.salt = salt;
     }
- public user() {
+
+    public user() {
     }
+
     public Timestamp getLast_login() {
         return last_login;
     }
@@ -369,19 +364,25 @@ this.Prenom = prenom;
         this.confirmation_token = confirmation_token;
     }
 
-    
+    public int getTentative() {
+        return tentative;
+    }
+
+    public void setTentative(int tentative) {
+        this.tentative = tentative;
+    }
+
+    public int getEtat() {
+        return etat;
+    }
+
+    public void setEtat(int etat) {
+        this.etat = etat;
+    }
+
     @Override
     public String toString() {
         return "user{" + "id=" + id + ", Cin=" + Cin + ", Prenom=" + Prenom + ", Nom=" + Nom + ", Sexe=" + Sexe + ", roles=" + roles + ", Civilite=" + Civilite + ", Pays=" + Pays + ", Ville=" + Ville + ", Code_postal=" + Code_postal + ", Poste=" + Poste + ", Email=" + Email + ", Username=" + Username + ", Photo=" + Photo + ", Adresse=" + Adresse + ", Num_tel=" + Num_tel + ", Password=" + Password + ", username_canonical=" + username_canonical + ", email_canonical=" + email_canonical + ", salt=" + salt + ", Date_naissance=" + Date_naissance + ", last_login=" + last_login + ", password_requested_at=" + password_requested_at + ", enabled=" + enabled + ", confirmation_token=" + confirmation_token + '}';
     }
 
-   
-
-    
-
-  
-
-
-
-  
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EspaceClient.ShowDetailsVeloController">
+    
+   <children>
+      <Pane prefHeight="98.0" prefWidth="908.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="nom" prefHeight="98.0" prefWidth="908.0" style="-fx-background-color: white;" />
+         </children>
+      </Pane>
+      <HBox fx:id="sh1" alignment="CENTER" layoutY="134.0" prefHeight="364.0" prefWidth="908.0" style="-fx-background-color: white;" />
+      <Pane layoutX="10.0" layoutY="10.0" prefHeight="77.0" prefWidth="908.0" style="-fx-background-color: #9CC900;">
+         <children>
+            <Label layoutX="202.0" layoutY="4.0" prefHeight="70.0" prefWidth="392.0" text="Details" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Century Gothic" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

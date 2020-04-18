@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="519.0" prefWidth="810.0" style="-fx-background-color: #c4c4c4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EspaceVendeur.AddBikeController">
+<children>
+      <AnchorPane opacity="0.41" prefHeight="290.0" prefWidth="795.0" style="-fx-background-color: black;">
+         <effect>
+            <InnerShadow choke="0.51" />
+         </effect>
+      </AnchorPane>
+      <ImageView fitHeight="295.0" fitWidth="822.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/parallax.jpg" />
+         </image>
+         <effect>
+            <InnerShadow choke="0.51" height="1.0" radius="0.0" width="0.0" />
+         </effect>
+      </ImageView>
+      <AnchorPane fx:id="btnSave" layoutX="49.0" layoutY="147.0" prefHeight="350.0" prefWidth="631.0" style="-fx-background-color: #fff;">
+         <children>
+            <Label layoutX="12.0" layoutY="44.0" prefHeight="44.0" prefWidth="181.0" text="Date Ciculation" />
+            <Label layoutX="233.0" layoutY="57.0" prefHeight="18.0" prefWidth="133.0" text="Price" />
+            <Label layoutX="35.0" layoutY="175.0" prefHeight="18.0" prefWidth="133.0" text="Description" />
+            <Label layoutX="460.0" layoutY="57.0" prefHeight="18.0" prefWidth="106.0" text="Localisation" />
+            <Label layoutX="373.0" layoutY="179.0" prefHeight="55.0" prefWidth="85.0" text="Photo" />
+            <Button layoutX="431.0" layoutY="184.0" mnemonicParsing="false" onAction="#choiceFileAction" prefHeight="44.0" prefWidth="188.0" style="-fx-background-color: grey;" text="Choise a file">
+               <graphic>
+                  <ImageView fx:id="img" fitHeight="36.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic></Button>
+            <Label layoutX="44.0" layoutY="252.0" prefHeight="44.0" prefWidth="59.0" text="Quantity" />
+            <JFXComboBox fx:id="cat" layoutX="272.0" layoutY="294.0" />
+            <JFXDatePicker fx:id="dateP" layoutX="12.0" layoutY="89.0" />
+            <JFXTextField fx:id="TextP" layoutX="232.0" layoutY="91.0" />
+            <JFXTextField fx:id="TextL" layoutX="446.0" layoutY="91.0" />
+            <JFXTextArea fx:id="TextD" layoutX="23.0" layoutY="198.0" prefHeight="36.0" prefWidth="300.0" />
+            <JFXTextField fx:id="TextQ" layoutX="23.0" layoutY="306.0" />
+            <JFXButton layoutX="455.0" layoutY="267.0" onAction="#saveBikeAction" prefHeight="55.0" prefWidth="117.0" style="-fx-background-color: #274f7d;" text="Button" />
+         </children>
+      </AnchorPane>
+   </children>
+   <effect>
+      <InnerShadow />
+   </effect>
+</AnchorPane>
