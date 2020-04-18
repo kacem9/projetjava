@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EspaceVendeur.HomeController">
+    <children>
+      <ImageView fitHeight="303.0" fitWidth="808.0" focusTraversable="true" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/parallax.jpg" />
+         </image>
+         <effect>
+            <InnerShadow choke="0.51" height="1.0" radius="0.0" width="0.0" />
+         </effect>
+      </ImageView>
+      <Pane prefHeight="50.0" prefWidth="808.0" style="-fx-background-color: #2c304d;">
+         <children>
+            <Button layoutX="184.0" layoutY="3.0" mnemonicParsing="false" onAction="#Produit" prefHeight="44.0" prefWidth="142.0" style="-fx-background-color: #2c304d;" text="Produit" textFill="WHITE" />
+            <Button layoutX="333.0" layoutY="3.0" mnemonicParsing="false" onAction="#LocationAcceuilAction" prefHeight="44.0" prefWidth="142.0" style="-fx-background-color: #2c304d;" text="Loactions" textFill="WHITE" />
+         </children>   
+      </Pane>
+      <ImageView fitHeight="50.0" fitWidth="136.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/logo-big.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="119.0" layoutY="221.0" prefHeight="286.0" prefWidth="537.0" style="-fx-background-color: #fff;">
+         <effect>
+            <DropShadow radius="23.3425" width="74.37" />
+         </effect>
+      </AnchorPane>
+    </children>
+ 
+</AnchorPane>

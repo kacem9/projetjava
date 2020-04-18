@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" id="AnchorPane" prefHeight="736.0" prefWidth="1273.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EspaceClient.ClientController">
+     <children>
+      <VBox alignment="CENTER" layoutY="273.0" prefHeight="627.0" prefWidth="1600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="273.0">
+         <children>
+            <HBox fx:id="main" alignment="CENTER" prefHeight="631.0" prefWidth="1600.0" />
+         </children>
+      </VBox>
+      <HBox prefHeight="26.0" prefWidth="1285.0" style="-fx-background-color: black;">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome To The World of Bikes">
+               <HBox.margin>
+                  <Insets left="100.0" top="5.0" />
+               </HBox.margin>
+            </Text>
+            <MenuButton mnemonicParsing="false" style="-fx-background-color: black;" text="My Account" textFill="WHITE">
+              <items>
+                <MenuItem fx:id="login" mnemonicParsing="false" text="Login" />
+                <MenuItem fx:id="register" mnemonicParsing="false" text="Register" />
+              </items>
+               <HBox.margin>
+                  <Insets left="700.0" />
+               </HBox.margin>
+            </MenuButton>
+         </children>
+      </HBox>
+      <BorderPane fx:id="mainPane" layoutX="120.0" layoutY="134.0" prefHeight="592.0" prefWidth="822.0" />
+      <HBox layoutX="1.0" layoutY="26.0" prefHeight="79.0" prefWidth="1284.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fitHeight="79.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logo.png" />
+               </image>
+            </ImageView>
+            <MenuButton fx:id="bike" mnemonicParsing="false" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: white;" text="Bike">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Kids Bikes" />
+                  <MenuItem mnemonicParsing="false" text="Montain Bike" />
+                  <MenuItem mnemonicParsing="false" text="Road Bike" />
+                  <MenuItem mnemonicParsing="false" text="Sports Bike" />
+                  <MenuItem mnemonicParsing="false" text="Cyclocross Bike" />
+                  <MenuItem mnemonicParsing="false" onAction="#produit" text="Produit" />
+               </items>
+               <HBox.margin>
+                  <Insets left="20.0" top="25.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </MenuButton>
+            <Button fx:id="bikeParts" mnemonicParsing="false" prefHeight="31.0" prefWidth="130.0" style="-fx-background-color: white;" text="Bike Parts">
+               <HBox.margin>
+                  <Insets left="10.0" top="25.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#locationClient" prefHeight="31.0" prefWidth="120.0" style="-fx-background-color: white;" text="Location">
+               <HBox.margin>
+                  <Insets left="20.0" top="25.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            
+                 <Button mnemonicParsing="false" onAction="#CartClient" prefHeight="31.0" prefWidth="77.0" style="-fx-background-color: white;" text="Cart">
+               <HBox.margin>
+                  <Insets left="20.0" top="25.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+             <Button mnemonicParsing="false" onAction="#orderLocation" prefHeight="31.0" prefWidth="140.0" style="-fx-background-color: white;" text="Order Location">
+               <HBox.margin>
+                  <Insets left="20.0" top="25.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="events" mnemonicParsing="false" prefHeight="31.0" prefWidth="93.0" style="-fx-background-color: white;" onAction="#eventAcceuilAction" text="Events">
+               <HBox.margin>
+                  <Insets left="20.0" top="25.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <MenuButton fx:id="repaires" mnemonicParsing="false" prefHeight="31.0" prefWidth="122.0" style="-fx-background-color: white;" text="Repaires">
+                  <items>
+                  <MenuItem fx:id="listRepaires" mnemonicParsing="false" onAction="#handleButton1Action" text="List Of Repaires" />
+                  <MenuItem fx:id="createMenuClicked" mnemonicParsing="false" onAction="#handleButton1Action" text="List Of Appointment" />
+                  <MenuItem fx:id="valid" mnemonicParsing="false" text="My Valid Appointment" onAction="#handleButton1Action" />
+               </items>
+               <HBox.margin>
+                  <Insets left="20.0" top="25.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </MenuButton>
+            <MenuButton fx:id="anOrder" mnemonicParsing="false" prefHeight="31.0" prefWidth="126.0" style="-fx-background-color: white;" text="An Order">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Rental Order" />
+                  <MenuItem mnemonicParsing="false" text="Purchase Order Bike" />
+                  <MenuItem mnemonicParsing="false" text="Purchase Order Accessory" />
+               </items>
+               <HBox.margin>
+                  <Insets left="20.0" top="25.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </MenuButton>
+            <MenuButton fx:id="reclamation" mnemonicParsing="false" prefWidth="131.0" style="-fx-background-color: white;" text="Reclamation">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Add Reclamation" />
+                  <MenuItem mnemonicParsing="false" text="List Of Reclamation" />
+               </items>
+               <HBox.margin>
+                  <Insets left="20.0" top="25.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </MenuButton>
+         </children>
+      </HBox>
+      <BorderPane fx:id="mainPane1" layoutX="130.0" layoutY="144.0" prefHeight="592.0" prefWidth="822.0" />
+   </children>
+</AnchorPane>

@@ -1,13 +1,16 @@
 
-package Service;
+package service;
 
 import controllers.*;
 
 
 import Utils.*;
+import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
 
-import entities.fos_user;
-import entities.rendezvous;
+import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
+import Entities.fos_user;
+import Entities.rendezvous;
+import connection.ConnexionBD;
 import java.awt.AWTException;
 import java.awt.TrayIcon;
 import java.io.File;
@@ -16,12 +19,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.Authenticator;
 import java.net.MalformedURLException;
+import java.net.PasswordAuthentication;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -29,6 +35,13 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javax.mail.Session;
+import javax.mail.internet.AddressException;
+
+
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import doryan.windowsnotificationapi.fr.Notification;
 
 
 /**
@@ -49,6 +62,7 @@ public class fos_user_service {
     public ObservableList<fos_user> getAll() {
         ObservableList<fos_user> list = FXCollections.observableArrayList();
         String requete = "select * from fos_user";
+      
         try {
            PreparedStatement pt1 = c.prepareStatement("select id, username, username_canonical, email, email_canonical, enabled, salt, password, last_login,  confirmation_token,  password_requested_at,  roles,  Cin,  Nom, Prenom, Sexe, Date_naissance, Num_tel, Adresse,  Poste, Civilite, Pays, Ville,  Code_postal, photo from fos_user ");
             ResultSet rs = pt1.executeQuery();
@@ -66,7 +80,7 @@ public class fos_user_service {
        public void afficherReparateur(ObservableList<fos_user> oblist) throws IOException{
         try {
            // oblist = FXCollections.observableArrayList();
-            PreparedStatement pt1 = c.prepareStatement("select id, username, username_canonical, email, email_canonical, enabled, salt, password, last_login,  confirmation_token,  password_requested_at,  roles,  Cin,  Nom, Prenom, Sexe, Date_naissance, Num_tel, Adresse,  Poste, Civilite, Pays, Ville,  Code_postal, photo from fos_user ");
+            PreparedStatement pt1 = c.prepareStatement("select id, username, username_canonical, email, email_canonical, enabled, salt, password, last_login,  confirmation_token,  password_requested_at,  roles,  Cin,  Nom, Prenom, Sexe, Date_naissance, Num_tel, Adresse,  Poste, Civilite, Pays, Ville,  Code_postal, photo from fos_user where roles='Reparateur'");
             ResultSet rs = pt1.executeQuery();
             
             while (rs.next()) {
@@ -95,7 +109,22 @@ public class fos_user_service {
             Logger.getLogger(fos_user_service.class.getName()).log(Level.SEVERE, null, ex);
         }    
     }
-    
+       public void update(fos_user f , int id ) {
+             String requete = "update fos_user where id= ?";
+        try {
+            pst= connection.prepareStatement(requete);
+            
+            pst.setInt(1 , f.getId());
+          
+                      
+                     
+            pst.executeUpdate();
+            System.out.println("fos_user Modifier avec succé: ");            
+        } catch (SQLException ex) {
+            Logger.getLogger(fos_user_service.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
     
     
     public void afficherPrenomReparateur(ComboBox combo){
@@ -160,32 +189,40 @@ public class fos_user_service {
             Logger.getLogger(fos_user_service.class.getName()).log(Level.SEVERE, null, ex);
         }        
     }
+      public static String sendMail(String recep ,String obj) throws Exception{
+    Properties p= new Properties();  
+    p.put("mail.smtp.auth", "true");
+    p.put("mail.smtp.starttls.enable", "true");
+    p.put("mail.smtp.host", "smtp.gmail.com");
+    p.put("mail.smtp.port", "587");
+   
+    String e_mail="nesrinezouaoui583@gmail.com";
+    String pass = "nesrine58967048";
     
-    public void afficherPrenomChauffeur(ComboBox combo){
-        try {
-            PreparedStatement pt = c.prepareStatement("select Prenom from fos_user ");
-            ResultSet rs = pt.executeQuery();
-            while (rs.next()) {
-             //System.out.println(rs.getString(1) + " " +rs.getString(2));
-                
-             combo.getItems().add(rs.getString(1));
-               //System.out.println(rs.getString(1)+" "+rs.getString(2));         
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(fos_user_service.class.getName()).log(Level.SEVERE, null, ex);
+
+    Session session =Session.getInstance(p,new javax.mail.Authenticator(){
+        @Override
+        protected javax.mail.PasswordAuthentication getPasswordAuthentication(){
+          return new javax.mail.PasswordAuthentication(e_mail, pass);
         }
+    });
+ 
+     
+        javax.mail.Message message=prepareMessage(session,e_mail,recep,obj);
+        javax.mail.Transport.send(message);
+          Notification.sendNotification("Notification TaxiCo", "Email envoyé ",TrayIcon.MessageType.INFO);
+       return e_mail;
     }
-    
-    public void afficherNomChauffeur(String Prenom, ComboBox comboNom){
-        try {
-            PreparedStatement pt = c.prepareStatement("select Nom from fos_user where Prenom='"+Prenom+"'");
-            ResultSet rs = pt.executeQuery();
-            while (rs.next()) {
-            // System.out.println(rs.getString(1));
-             comboNom.getItems().add(rs.getString(1));
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(fos_user_service.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+private static javax.mail.Message prepareMessage(Session session,String e_mail, String recipient,String obj) throws javax.mail.MessagingException{
+
+    javax.mail.Message message = new MimeMessage(session);
+message.setFrom(new InternetAddress(e_mail));
+message.setRecipient(javax.mail.Message.RecipientType.TO, new InternetAddress(recipient));
+message.setSubject("Info TaxiCo");
+message.setText(obj);
+
+return message;
+
+}
+  
 }

@@ -1,5 +1,5 @@
 
-package entities;
+package Entities;
 
 import java.util.Date;
 import javafx.scene.image.Image;

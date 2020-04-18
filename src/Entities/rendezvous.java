@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and openprivate the template in the editor.
- */
-package entities;
 
+package Entities;
+
+import java.util.List;
 import javafx.collections.ObservableList;
 import javafx.scene.control.CheckBox;
 
@@ -23,21 +20,15 @@ private String message  ;
 private String typepanne;
 private int numtel;
 private int user ;
-private CheckBox checkbox;
+private int fos ;
+
 
     public rendezvous(String typepanne,int Cin ) {
         this.Cin = Cin;
         this.typepanne = typepanne;
     }
 
-
-
-
-
-    public rendezvous() {
-    }
-
-    public rendezvous(int Cin, String nom, String prenom, String email, String adresse, String message, String typepanne, int numtel, int user) {
+    public rendezvous(int Cin, String nom, String prenom, String email, String adresse, String message, String typepanne, int numtel, int user, int fos) {
         this.Cin = Cin;
         this.nom = nom;
         this.prenom = prenom;
@@ -46,8 +37,11 @@ private CheckBox checkbox;
         this.message = message;
         this.typepanne = typepanne;
         this.numtel = numtel;
-         this.user = user;
-      
+        this.user = user;
+        this.fos = fos;
+    }
+
+    public rendezvous() {
     }
 
     public int getCin() {
@@ -122,43 +116,17 @@ private CheckBox checkbox;
         this.user = user;
     }
 
-    public CheckBox getCheckbox() {
-        return checkbox;
+    public int getFos() {
+        return fos;
     }
 
-    public void setCheckbox(CheckBox checkbox) {
-        this.checkbox = checkbox;
+    public void setFos(int fos) {
+        this.fos = fos;
     }
 
-    @Override
-    public String toString() {
-        return "rendezvous{" + "typepanne=" + typepanne + ", Cin=" + Cin + '}';
-    }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 79 * hash + this.Cin;
-        return hash;
-    }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final rendezvous other = (rendezvous) obj;
-        if (this.Cin != other.Cin) {
-            return false;
-        }
-        return true;
-    }
+
 
  
 

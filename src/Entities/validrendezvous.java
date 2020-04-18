@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entities;
+package Entities;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -23,11 +23,12 @@ private String etat;
 private String message;  
 private int reference;  
 private int user ;
+private int user_cc;
 
     public validrendezvous() {
     }
 
-    public validrendezvous(String emailR, String dateheure, String prix, String promo, String etat, String message, int reference, int user) {
+    public validrendezvous(String emailR, String dateheure, String prix, String promo, String etat, String message, int reference, int user, int user_cc) {
         this.emailR = emailR;
         this.dateheure = dateheure;
         this.prix = prix;
@@ -36,6 +37,7 @@ private int user ;
         this.message = message;
         this.reference = reference;
         this.user = user;
+        this.user_cc = user_cc;
     }
 
     public String getEmailR() {
@@ -102,8 +104,12 @@ private int user ;
         this.user = user;
     }
 
-    public void setDateheure(LocalDate dateheure) {
-         dateheure = dateheure;
+    public int getUser_cc() {
+        return user_cc;
+    }
+
+    public void setUser_cc(int user_cc) {
+        this.user_cc = user_cc;
     }
 
 
@@ -111,7 +117,5 @@ private int user ;
 
 
 
-
-
-
 }
+

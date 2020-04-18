@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="515.0" prefWidth="1123.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.EventController">
+    <children>
+      <Label alignment="CENTER" layoutX="461.0" layoutY="36.0" prefHeight="23.0" prefWidth="180.0" text="Event list" textFill="#9a8e8e">
+         <font>
+            <Font name="Bauhaus 93" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="image" fitHeight="562.0" fitWidth="819.0" layoutX="-37.0" layoutY="-6.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" styleClass="Style.css">
+         <image>
+            <Image url="@../image/velo.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tvEvent" layoutX="532.0" layoutY="99.0" prefHeight="296.0" prefWidth="567.0">
+         <columns>
+            <TableColumn fx:id="tcNom" prefWidth="60.0" text="Nom" />
+            <TableColumn fx:id="tcCategories" minWidth="0.0" prefWidth="95.0" text="Categories" />
+            <TableColumn fx:id="tcDate_event" minWidth="0.0" prefWidth="91.0" text="Date_event" />
+            <TableColumn fx:id="tcDescription" minWidth="0.0" prefWidth="89.0" text="Description" />
+            <TableColumn fx:id="tcNbr_participant" minWidth="0.0" prefWidth="97.0" text="Nbr_participant" />
+            <TableColumn fx:id="tcLieu_event" minWidth="0.0" prefWidth="89.0" text="Lieu_event" />
+            <TableColumn fx:id="tcPrice" minWidth="0.0" prefWidth="44.0" text="Price" />
+         </columns>
+      </TableView>
+      <Button fx:id="remove" onAction="#SupprimerEventAction" layoutX="551.0" layoutY="476.0" mnemonicParsing="false" style="-fx-background-color: #f99f1b; -fx-background-radius: 7em;" text="Supprimer">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_valid" onAction="#ValiderEventAction" layoutX="648.0" layoutY="476.0" mnemonicParsing="false" style="-fx-background-color: #f99f1b; -fx-background-radius: 7em;" text="Valider">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
